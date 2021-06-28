@@ -1,16 +1,27 @@
 <template>
   <div id="app">
     <Form v-if="!renderList" />
-    <!-- <ListTable /> -->
     <ListAll v-if="renderList" />
-    <button v-on:click="handleList" class="btn btn-info">Listar Todos</button>
+    <button
+      v-if="!renderList"
+      v-on:click="handleList('list')"
+      class="btn btn-info"
+    >
+      Listar Todos
+    </button>
+    <button
+      v-if="renderList"
+      v-on:click="handleList('return')"
+      class="btn btn-info"
+    >
+      Voltar
+    </button>
   </div>
 </template>
 
 <script>
 import Form from "./components/Form.vue";
 import ListAll from "./components/ListAll.vue";
-// import ListTable from "./components/ListTable.vue";
 
 export default {
   name: "App",
@@ -24,8 +35,12 @@ export default {
   },
 
   methods: {
-    handleList() {
-      this.renderList = true;
+    handleList(e) {
+      if (e === "list") {
+        this.renderList = true;
+      } else if (e === "return") {
+        this.renderList = false;
+      }
     },
   },
 };
