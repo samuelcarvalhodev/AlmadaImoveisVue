@@ -90,7 +90,7 @@
         <br>
         <label class="form-label" for="">Foto da casa</label>
         <span>
-          <img v-bind="image" alt="imagem da casa" >
+          <img :src="image" alt="imagem da casa" >
         </span>
       </div>
     </main>
