@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Form v-if="!renderList" />
+    <ListTable />
+    <ListAll v-if="renderList" />
+    <button v-on:click="handleList">Listar Todos</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Form from "./components/Form.vue";
+import ListAll from "./components/ListAll.vue";
+import ListTable from "./components/ListTable.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Form,
+    ListAll,
+    ListTable,
+  },
+  props: {
+    renderList: Boolean,
+  },
+
+  methods: {
+    handleList() {
+      this.renderList = true;
+    },
   },
 };
 </script>
