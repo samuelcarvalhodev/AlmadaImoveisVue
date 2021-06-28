@@ -3,6 +3,7 @@ import Vue from
   <div>
     <ul class="list-unstyled">
       <li class="text-center">
+
         <h2 for="title">Titulo</h2>
         <p class="fst-italic text-nowrap bd-highlight" id="title" name="title">
           {{ this.title }}
@@ -67,8 +68,10 @@ import Vue from
         </p>
       </li>
       <li class="text-center">
-        <h2 for="image">Foto da casa</h2>
-        <img id="image" src="path" alt="Casa" />
+        <h2 class="h2 display-6 text-decoration-underline" for="image">Foto da casa</h2>
+        <div class="card mb-3" style="width: 18rem; marginRight: auto; marginLeft: auto">
+          <img id="image" :src="path" alt="Casa" class="card-img-top" />
+        </div>
       </li>
     </ul>
   </div>
@@ -98,6 +101,7 @@ export default {
     this.getAnnounces();
   },
   methods: {
+
     getAnnounces() {
       var announces = JSON.parse(localStorage.getItem("announces"));
 
