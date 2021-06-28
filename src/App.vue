@@ -1,23 +1,23 @@
 <template>
   <div id="app">
     <Form v-if="!renderList" />
-    <ListTable />
+    <!-- <ListTable /> -->
     <ListAll v-if="renderList" />
-    <button v-on:click="handleList">Listar Todos</button>
+    <button v-on:click="handleList" class="btn btn-info">Listar Todos</button>
   </div>
 </template>
 
 <script>
 import Form from "./components/Form.vue";
 import ListAll from "./components/ListAll.vue";
-import ListTable from "./components/ListTable.vue";
+// import ListTable from "./components/ListTable.vue";
 
 export default {
   name: "App",
   components: {
     Form,
     ListAll,
-    ListTable,
+    // ListTable,
   },
   props: {
     renderList: Boolean,
